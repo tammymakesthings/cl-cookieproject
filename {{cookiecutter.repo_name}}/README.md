@@ -1,6 +1,6 @@
-# {{ cookiecutter.project_name }}
+# cl-provisioning
 
-{{ cookiecutter.description }}
+Common Lisp Machine Provisioning
 
 # Usage
 
@@ -17,8 +17,8 @@ or build and run the binary:
 
 ```
 $ make build
-$ ./{{ cookiecutter.project_name }} [name]
-Hello [name] from {{ cookiecutter.project_name }}
+$ ./cl-provisioning [name]
+Hello [name] from cl-provisioning
 ```
 
 ## Roswell integration
@@ -27,7 +27,7 @@ Roswell is an implementation manager and [script launcher](https://github.com/ro
 
 A POC script is in the roswell/ directory.
 
-Your users can install the script with `{{ cookiecutter.username }}/{{ cookiecutter.project_name }}`.
+Your users can install the script with `tammymakesthings/cl-provisioning`.
 
 # Dev
 
