@@ -20,6 +20,8 @@ ASDF_FILES      := $(wildcard *.asd)
 ROSWELL_FILES   := $(shell find roswell -type f -name '*.ros')
 EXTRA_FILES     := Makefile \
 		   $(shell find . -type f -name '*.md') \
+		   $(shell find . -type f -name '*.rst') \
+		   $(shell find . -type f -name '*.org') \
 		   $(shell find . -type f -name '*.json' -o -name '*.toml')
 
 ALL_FILES       := $(SOURCE_FILES) \
@@ -82,5 +84,6 @@ tar: ## Create a tarball of this directory
 clean: ## Clean intermediate files ;
 	rm -f *.tar
 	rm -f bin/$(EXECUTABLE_NAME)
+	find docs -name *.html | xargs rm -f --
 
 .PHONY: all doc check tar clean
