@@ -38,19 +38,16 @@ help: # Display a list of Makefile targets
 all: build test		# Build the executable and run tests
 
 run: ## Run the clprovision tool
-	$(RLWRAP) $(LISP) --load run.lisp
+	$(RLWRAP) $(LISP) --load "run.lisp"
 
 build: $(SOURCE_FILES) $(ASDF_FILES) ## Build the clprovision executable
-	$(LISP)	--non-interactive \
-		--load "$(SYSTEM_NAME).asd" \
-		--eval "(ql:quickload :$(SYSTEM_NAME))" \
-		--eval "(asdf:make :$(SYSTEM_NAME))"
-	mkdir -p bin
-	mv $(EXECUTABLE_NAME) bin
+	$(LISP) --non-interactive --load "build.lisp"
 
 test: $(SOURCE_FILES) $(ASDF_FILES) $(TEST_FILES) ## Run the unit tests
-	$(LISP) --non-interactive \
-		--load run-tests.lisp
+	$(LISP) --non-interactive --load "run-tests.lisp"
+
+doc: build ; ## Generate documentation
+	$(LISP) --non-interactive --load "build-docs.lisp"
 
 check: ## Display Makefile parameters
 	@echo "============================| Make Parameters |=============================="
@@ -70,12 +67,6 @@ check: ## Display Makefile parameters
 	@echo "            LISP: $(LISP)"
 	@echo "          RLWRAP: $(RLWRAP)"
 	@echo "============================================================================="
-
-doc: build ; ## Generate documentation
-	$(LISP) --non-interactive \
-		--eval "(ql:quickload :coo)" \
-		--eval "(ql:quickload :$(SYSTEM_NAME))" \
-		--eval "(coo:document-system :$(SYSTEM_NAME))"
 
 tar: ## Create a tarball of this directory
 	tar cvf $(SYSTEM_NAME)-$(shell date +%Y%m%d%H%M%S).tar $(ALL_FILES)

@@ -1,3 +1,6 @@
+;;;; -*- lisp; coding: utf-8; lexical-binding: t; -*-
+;;;; run.lisp
+
 "
 Usage:
 
@@ -8,9 +11,12 @@ calls the main function.
 
 Then, we are given the lisp prompt.
 
-If you don't want to land in the REPL, you can (quit) below or call lisp with the --non-interactive flag.
+If you don't want to land in the REPL, you can (quit) below or call lisp with
+the --non-interactive flag.
 
 Another solution to run the app is to build and run a binary (see README).
+
+This file does the same thing as the 'make run' Makefile target.
 "
 
 (load "{{ cookiecutter.project_name}}.asd")
