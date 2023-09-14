@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "{{ cookiecutter.project_name}}"
+		}
+	],
+	"settings": {
+		"editor.formatOnType": true,
+		"alive.format.indentWidth": 2,
+		"editor.autoIndent": "full",
+		"editor.trimAutoWhitespace": true,
+
+		"[lisp]": {
+			"editor.wordSeparators": "`|;:'\",()",
+			"files.encoding": "utf8",
+			"files.eol": "\n",
+			"files.insertFinalNewline": true,
+			"files.trimFinalNewlines": true,
+			"files.trimTrailingWhitespace": true,
+			"files.autoGuessEncoding": false,
+			"editor.bracketPairColorization.enabled": false,
+		},
+		"C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+	},
+	"extensions": {
+		"recommendations": [
+			"rheller.alive",
+			"jeff-hykin.better-lisp-syntax"
+
+		]
+	}
+}
